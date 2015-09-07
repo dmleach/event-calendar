@@ -7,10 +7,11 @@ use Symfony\Component\HttpFoundation\Response;
 
 class CalendarController extends Controller
 {
-    public function testAction()
+    public function testAction($_controller, $_route)
     {
         $DisplayValues = array (
-            "MethodName" => "testAction"
+            "Controller" => $_controller,
+            "Route" => $_route
         );
         return $this->render("test/test.html.twig", $DisplayValues);
     }
