@@ -1,3 +1,7 @@
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
+calendar-test:
+    path:     /calendar/test
+    defaults: { _controller: AppBundle:Calendar:test }
