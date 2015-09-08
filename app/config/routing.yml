@@ -5,3 +5,11 @@ app:
 calendar-test:
     path:     /calendar/test
     defaults: { _controller: AppBundle:Calendar:test }
+
+event-test-insert:
+    path:     /calendar/event/insert
+    defaults: { _controller: AppBundle:Calendar:eventInsert }
+
+event-test-select:
+    path:     /calendar/event/{EventId}
+    defaults: { _controller: AppBundle:Calendar:eventSelect }

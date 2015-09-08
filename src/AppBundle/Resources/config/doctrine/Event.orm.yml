@@ -1,0 +1,14 @@
+AppBundle\Entity\Event:
+    type: entity
+    table: EVENTS
+    id:
+        Id:
+            column: EVNT_ID
+            type: integer
+            unique: true
+            generator: { strategy: AUTO }
+    fields:
+        Title:
+            column: EVNT_TITLE
+            type: string
+            length: 200

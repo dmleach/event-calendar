@@ -15,6 +15,34 @@ class CalendarController extends Controller
         );
         return $this->render("test/test.html.twig", $DisplayValues);
     }
+
+    public function eventInsertAction()
+    {
+        $Event = new \AppBundle\Entity\Event();
+        $Event->setTitle("Test Event");
+
+        $DoctrineManager = $this->getDoctrine()->getManager();
+        $DoctrineManager->persist($Event);
+        $DoctrineManager->flush();
+
+        return new Response("Created event {$Event->getId()}");
+    }
+
+    public function eventSelectAction($EventId)
+    {
+        $DoctrineRepository = $this->getDoctrine()->getRepository(
+            "AppBundle:Event"
+        );
+        $Event = $DoctrineRepository->find($EventId);
+
+        if ($Event == false) {
+            throw $this->createNotFoundException(
+                "Error fetching event #{$EventId}"
+            );
+        } else {
+            return new Response("Event #{$EventId} is {$Event->getTitle()}");
+        }
+    }
 }
 
 ?>
