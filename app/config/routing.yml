@@ -10,6 +10,10 @@ event-test-insert:
     path:     /calendar/event/insert
     defaults: { _controller: AppBundle:Calendar:eventInsert }
 
+event-test-select-all:
+    path:     /calendar/event
+    defaults: { _controller: AppBundle:Calendar:eventSelectAll }
+
 event-test-select:
     path:     /calendar/event/{EventId}
     defaults: { _controller: AppBundle:Calendar:eventSelect }

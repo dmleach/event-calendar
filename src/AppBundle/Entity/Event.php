@@ -5,12 +5,13 @@ namespace AppBundle\Entity;
 class Event
 {
     private $Id;
+    private $StartTime;
     private $Title;
 
     /**
      * Get Id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -33,7 +34,7 @@ class Event
     /**
      * Get Title
      *
-     * @return string 
+     * @return string
      */
     public function getTitle()
     {

@@ -1,5 +1,6 @@
 AppBundle\Entity\Event:
     type: entity
+    repositoryClass: AppBundle\Entity\EventRepository
     table: EVENTS
     id:
         Id:
@@ -12,3 +13,6 @@ AppBundle\Entity\Event:
             column: EVNT_TITLE
             type: string
             length: 200
+        StartTime:
+            column: EVNT_START_TIME
+            type: datetime

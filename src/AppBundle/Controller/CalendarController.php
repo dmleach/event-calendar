@@ -30,10 +30,7 @@ class CalendarController extends Controller
 
     public function eventSelectAction($EventId)
     {
-        $DoctrineRepository = $this->getDoctrine()->getRepository(
-            "AppBundle:Event"
-        );
-        $Event = $DoctrineRepository->find($EventId);
+        $Event = $this->getRepository()->find($EventId);
 
         if ($Event == false) {
             throw $this->createNotFoundException(
@@ -42,6 +39,18 @@ class CalendarController extends Controller
         } else {
             return new Response("Event #{$EventId} is {$Event->getTitle()}");
         }
+    }
+
+    public function eventSelectAllAction()
+    {
+        $Events = $this->getRepository()->fetchAllUpcoming();
+        $EventCount = count($Events);
+        return new Response("Found {$EventCount} upcoming events");
+    }
+
+    protected function getRepository()
+    {
+        return $this->getDoctrine()->getRepository("AppBundle:Event");
     }
 }
 
